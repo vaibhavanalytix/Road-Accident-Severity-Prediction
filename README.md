@@ -9,6 +9,7 @@ A Machine Learning project to predict the severity of road accidents (Fatal, Ser
 - Target Variable: Accident_Severity (1=Fatal, 2=Serious, 3=Slight)
 
 ## Project Structure
+```
 road_accident_project/
 ├── data/
 ├── notebooks/
@@ -16,6 +17,7 @@ road_accident_project/
 ├── visualizations/
 ├── app/
 └── requirements.txt
+```
 
 ## Pipeline
 1. Problem Definition
