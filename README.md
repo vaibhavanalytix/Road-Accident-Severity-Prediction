@@ -47,11 +47,22 @@ road_accident_project/
 - Matplotlib, Seaborn
 - Streamlit, Joblib
 
-## How to Run
+## How to Run Locally
 ```bash
+# 1. Clone the repo
+git clone https://github.com/vaibhavanalytix/Road-Accident-Severity-Prediction.git
+
+# 2. Install dependencies
 pip install -r requirements.txt
+
+# 3. Run notebook to generate model files
+# Open notebooks/eda.ipynb and run all cells
+
+# 4. Run the app
 streamlit run app/app.py
 ```
+> Note: Dataset and model files not included due to size limits.
+> Download dataset from Kaggle: UK Road Accident Data
 
 ## Limitations
 - Model biased toward Slight due to class imbalance
