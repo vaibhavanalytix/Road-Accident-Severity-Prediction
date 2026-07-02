@@ -1,10 +1,10 @@
 # Road Accident Severity Prediction
 
 ## Overview
-A Machine Learning project to predict the severity of road accidents (Fatal, Serious, Slight) based on time, weather, road type, and light conditions.
+End-to-end Machine Learning project to predict road accident severity (Fatal, Serious, Slight) using UK government data. Built to demonstrate a complete ML pipeline from EDA to Streamlit deployment.
 
 ## Dataset
-- Source: Kaggle — UK Road Accident Data
+- Source: [UK Road Accident Data — Kaggle](https://www.kaggle.com/datasets/devansodariya/road-accident-united-kingdom-uk-dataset)
 - Total Rows: 1,504,150 | Sample Used: 100,000
 - Target Variable: Accident_Severity (1=Fatal, 2=Serious, 3=Slight)
 
@@ -30,16 +30,20 @@ road_accident_project/
 8. Hyperparameter Tuning
 9. Deployment
 
-## Models Used
-- Logistic Regression
-- Decision Tree
-- Random Forest (Best Model — 84% Accuracy)
+## Model Comparison
+| Model | Accuracy | F1 (weighted) |
+|-------|----------|---------------|
+| Logistic Regression | 50% | 0.60 |
+| Decision Tree | 75% | 0.75 |
+| Random Forest | 84% | 0.79 |
+
+Random Forest selected as best model.
 
 ## Key Findings
-- Dataset is highly imbalanced — 85% Slight, 13.6% Serious, 1.27% Fatal
-- Peak accident hours — 8-9 AM and 4-6 PM
-- 68.7% accidents occur on dry roads
-- SMOTE and class_weight both tried to handle imbalance
+- Dataset severely imbalanced — 85% Slight, 13.6% Serious, 1.27% Fatal
+- Peak accident hours — 8-9 AM and 4-6 PM (rush hours)
+- 68.7% accidents on dry roads — high volume roads, not weather driven
+- Fatal accidents correlate with higher speed limits
 
 ## Tools & Libraries
 - Python, Pandas, NumPy
@@ -61,9 +65,13 @@ pip install -r requirements.txt
 # 4. Run the app
 streamlit run app/app.py
 ```
-> Note: Dataset and model files not included due to size limits.
-> Download dataset from Kaggle: UK Road Accident Data
+> Dataset and model files excluded due to GitHub size limits (427MB and 326MB).
+> Download dataset from Kaggle link above.
 
 ## Limitations
-- Model biased toward Slight due to class imbalance
-- Fatal cases only 1.27% - insufficient data to learn patterns
+- Model predicts mostly "Slight" - baseline accuracy of always predicting Slight = 85%
+- Model's 84% accuracy is not meaningfully better than this baseline for Fatal/Serious cases
+- Fixes attempted:
+  - class_weight='balanced' - minimal improvement
+  - SMOTE - synthetic samples insufficient, only 1,016 real Fatal records to learn from
+- Root cause: Fatal accidents are rare by nature - data limitation, not model limitation
