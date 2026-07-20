@@ -59,14 +59,16 @@ git clone https://github.com/vaibhavanalytix/Road-Accident-Severity-Prediction.g
 # 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Run notebook to generate model files
-# Open notebooks/eda.ipynb and run all cells
+# 3. Download dataset from Kaggle and place in data/ folder
+# https://www.kaggle.com/datasets/devansodariya/road-accident-united-kingdom-uk-dataset
 
-# 4. Run the app
+# 4. Run notebook to generate model files
+# Open notebooks/eda.ipynb and Run All cells
+
+# 5. Run the app
 streamlit run app/app.py
 ```
-> Dataset and model files excluded due to GitHub size limits (427MB and 326MB).
-> Download dataset from Kaggle link above.
+> Dataset and model files excluded due to GitHub size limits.
 
 ## Limitations
 - Model predicts mostly "Slight" - baseline accuracy of always predicting Slight = 85%
